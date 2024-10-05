@@ -1,0 +1,13 @@
+asgiref
+black
+click
+Django
+mypy-extensions
+pathspec
+Pillow
+platformdirs
+pytz
+regex
+sqlparse
+tomli
+typing-extensions
