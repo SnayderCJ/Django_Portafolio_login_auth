@@ -66,19 +66,21 @@ def signin(request):
             return redirect("home")
         
 
+@login_required
 def create_project(request):
     if request.method == 'GET':
         return render(request, "create_project.html", {
             'form': ProjectForm
         })
     else:
-        try:
-            form = ProjectForm(request.POST)
+        
+        form = ProjectForm(request.POST, request.FILES)
+        if form.is_valid():
             new_project = form.save(commit=False)
             new_project.user = request.user
             new_project.save()
             return redirect("home")
-        except ValueError:
+        else: 
             return render(request, "create_project.html", {
                 'form': ProjectForm,
                 "error": "Los datos que ingresaste son incorrectos. Por favor, inténtalo de nuevo."

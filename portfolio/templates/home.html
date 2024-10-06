@@ -23,9 +23,11 @@
 
   <h3>Mis Proyectos</h3>
 
-  <button>
-    <a href='create_project/' class="btn btn-light rounded-0 btn-sm"> Crear Proyecto</a>
-  </button>
+  {% if user.is_authenticated %}
+    <button>
+      <a href='create_project/' class="btn btn-light rounded-0 btn-sm"> Crear Proyecto</a>
+    </button>
+  {% endif %}
 
   {% for project in projects %}
   <div class="col-md-4 p-4">
