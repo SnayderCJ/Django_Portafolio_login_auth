@@ -7,14 +7,14 @@
 <!-- Hero Section -->
 <header class="row bg-black">
   <div class="col-md-4">
-    <img src="{% static 'portfolio/Snayder.jpeg' %}" class="img-fluid" />
+    <img src="{% static 'portfolio/logo.jpeg' %}" class="img-fluid" />
   </div>
 
   <div class="col-md-8 my-auto p-4">
-    <h1> Yo soy <strong> Snayder Cedeno </strong></h1>
-    <h3> Desarrollador Web </h3>
-    <p>¡Hola! Soy un entusiasta del deporte y un apasionado por la tecnología. Como programador, me especializo en una variedad de lenguajes, incluyendo JavaScript, Python, HTML, CSS, y algunas tecnologías de desarrollo web como Express, Bootstrap y Node.js. Actualmente, estoy dedicando mi tiempo a estudiar Ingeniería en Software en la Universidad Estatal de Milagro, donde estoy ampliando mis conocimientos y habilidades para convertirme en un desarrollador aún más competente. Con solo 20 años, soy un joven originario de Ecuador, un país que amo profundamente. Siempre estoy ansioso por aprender y crecer tanto personal como profesionalmente. La combinación de mi pasión por el deporte y mi dedicación a la programación refleja mi naturaleza activa y curiosa. Estoy emocionado por lo que el futuro tiene reservado para mí en el emocionante mundo de la tecnología, y estoy comprometido a seguir aprendiendo y mejorando en todo lo que hago.</p>
-    <a class="btn btn-primary btn-lg rounded-0 my-3" href="{% static 'portfolio/CV.pdf' %}"> Descargar CV </a>
+    <h1> Bienvenido <strong> {{user}} </strong></h1>
+    <h3> Desarrollador </h3>
+    <p>Aquí encontrarás información sobre mis proyectos, habilidades y experiencia.</p>
+    {% comment %} <a class="btn btn-primary btn-lg rounded-0 my-3" href="{% static 'portfolio/CV.pdf' %}"> Descargar CV </a> {% endcomment %}
   </div>
 </header>
 
@@ -22,7 +22,10 @@
 <div class="row my-4 text-center">
 
   <h3>Mis Proyectos</h3>
-  <p>Aqui mostrare mis proyectos como desarrollador web: </p>
+
+  <button>
+    <a href='create_project/' class="btn btn-light rounded-0 btn-sm"> Crear Proyecto</a>
+  </button>
 
   {% for project in projects %}
   <div class="col-md-4 p-4">

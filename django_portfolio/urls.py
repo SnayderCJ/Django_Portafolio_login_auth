@@ -23,7 +23,18 @@ from portfolio import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',  views.home),
+    path('',  views.home, name='home'),
+
+    # Auth
+    path('signup/', views.signup, name='signup'),
+    path('logout/', views.signout, name='logout'),
+    path('signin/', views.signin, name='signin'),
+
+    # Portfolio
+    path('create_project/', views.create_project, name='create_project'),
+
+
+
     path('blog/', include('blog.urls'))
 ]
 

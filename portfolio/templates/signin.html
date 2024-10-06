@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h1> Iniciar Seccion </h1>
+
+<p>
+{{error}}
+</p>
+
+<form method="POST">
+  {% csrf_token %}
+  {{form.as_p}}
+  <button>
+    Iniciar Seccion
+  </button>
+</form>
+
+{% endblock %}

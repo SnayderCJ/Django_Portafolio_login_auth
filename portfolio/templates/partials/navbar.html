@@ -2,19 +2,44 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-black">
   <div class="container">
-    <a class="navbar-brand fw-bold fst-italic" href="/">SC</a>
+    <a class="navbar-brand fw-bold fst-italic" href="/"> {{user}}</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
+
+
+        {% if user.is_authenticated %}
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'blog:posts' %}">Blog</a>
+          <a class="nav-link"href="{% url 'home' %}"> Home </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'blog:posts' %}">Blog</a>
+          </li>
         <li class="nav-item d-flex align-items-center">
-          <a class="btn btn-primary btn-sm" href="{% static 'portfolio/CV.pdf' %}" target="_blank">Descargar CV</a>
+          <a class="btn btn-primary btn-sm" href="/logout">Logout</a>
         </li>
+        {% else %}
+        <li class="nav-item d-flex align-items-center">
+            <a class="btn btn-primary btn-sm" href="/signin">Login</a>
+          </li>
+          <li class="nav-item d-flex align-items-center ms-auto"> 
+            <a class="btn btn-primary btn-sm" href="/signup">Register</a>
+          </li>
+        {% endif %}
+
+
+
+
+
+
+
+
+        {% comment %} <li class="nav-item d-flex align-items-center">
+          <a class="btn btn-primary btn-sm" href="{% static 'portfolio/CV.pdf' %}" target="_blank">Descargar CV</a>
+        </li> {% endcomment %}
       </ul>
     </div>
   </div>
